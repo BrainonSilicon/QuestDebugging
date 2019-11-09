@@ -6,7 +6,7 @@ public class Follower : MonoBehaviour
 {
     public GameObject leader;
     public bool following;
-    public float scale = 0.005f;
+    public float scale = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,7 @@ public class Follower : MonoBehaviour
 
     public void AssignLeader(GameObject lead)
     {
+        Debug.Log("Leader assigned");
         leader = lead;
         following = true;
     }
@@ -36,7 +37,7 @@ public class Follower : MonoBehaviour
             Vector3 unitDirection = direction.normalized;
             Vector3 step = unitDirection * scale;
             this.GetComponent<Rigidbody>().velocity = step;
-
+            //Debug.Log("Moving");
             //this.transform.position += step;
         }
     }
